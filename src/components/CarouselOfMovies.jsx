@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import Carousel from "react-bootstrap/Carousel";
+import WarningSign from "./WarningSign";
 
 class CarouselOfMovies extends React.Component {
   state = {
@@ -23,17 +24,21 @@ class CarouselOfMovies extends React.Component {
         });
       } else {
         console.log("Error! Danger! Run!");
+        <WarningSign />
         this.setState({
           ...this.state,
           isLoading: false,
         });
+        <WarningSign />
       }
     } catch (error) {
       console.log(error);
+      <WarningSign />
       this.setState({
         ...this.state,
         isLoading: false,
       });
+
     }
   };
 
