@@ -1,12 +1,13 @@
-import React from "react";
+import { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import Carousel from "react-bootstrap/Carousel";
-import WarningSign from "./WarningSign";
+// import WarningSign from "./WarningSign";
 
-class CarouselOfMovies extends React.Component {
-  state = {
+class CarouselOfMovies extends Component {
+  
+    state = {
     movies: [],
     isLoading: true,
   };
@@ -24,16 +25,13 @@ class CarouselOfMovies extends React.Component {
         });
       } else {
         console.log("Error! Danger! Run!");
-        <WarningSign />
         this.setState({
           ...this.state,
           isLoading: false,
         });
-        <WarningSign />
       }
     } catch (error) {
       console.log(error);
-      <WarningSign />
       this.setState({
         ...this.state,
         isLoading: false,
@@ -63,7 +61,7 @@ class CarouselOfMovies extends React.Component {
             <Container>
               <Row>
                 <Col className="d-flex">
-                  {this.state.movies.Search && this.state.movies.Search.map((movie) => ( //movies needs to NOT be an empty array- so, for them to be truthy, in order for the map to execute
+                  {this.state.movies.Search && this.state.movies.Search.map((movie) => ( //movies.Search needs to be truthy, in order for lines 64-73 to execute
                         <div key={movie.imdbID}>
                           <h6>{movie.Title}</h6>
                           <img
