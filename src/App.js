@@ -12,7 +12,7 @@ function App() {
     <TitleContainer/>
     <CarouselOfMovies title="Home Alone"/>
     <CarouselOfMovies title="Lord of the Rings"/>
-    <CarouselOfMovies title="Crank"/>
+    <CarouselOfMovies title="Saw"/>
       </header>
     </div>
   );
