@@ -1,4 +1,4 @@
-### This is a project that we previously completed using Vanilla JS - this time, it is refactored and made in React.
+### This is a project that we previously completed using Vanilla JS - this time, it is refactored and made with React.
 
 # Getting Started with Create React App
 
