@@ -10,7 +10,7 @@ function App() {
             <NavBar/>
       <header className="App-header">
     <TitleContainer/>
-    <CarouselOfMovies title="Harry Potter"/>
+    <CarouselOfMovies title="Home Alone"/>
     <CarouselOfMovies title="Lord of the Rings"/>
     <CarouselOfMovies title="Crank"/>
       </header>

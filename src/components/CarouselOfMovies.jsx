@@ -1,27 +1,39 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
+import Carousel from "react-bootstrap/Carousel";
 
 class CarouselOfMovies extends React.Component {
   state = {
     movies: [],
+    isLoading: true,
   };
 
   fetchMovies = async () => {
     try {
-        const response = await fetch(
-            `http://www.omdbapi.com/?apikey=be0e715&s=${this.props.title.toLowerCase()}`
-          );
-          if (response.ok) {
-            const moviesReadable = await response.json();
-            this.setState({
-                movies: moviesReadable
-            });
-          } else {
-            console.log("Error! Danger! Run!");
-          }
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=be0e715&s=${this.props.title}`
+      );
+      if (response.ok) {
+        const moviesReadable = await response.json();
+        this.setState({
+          movies: moviesReadable,
+          isLoading: false,
+        });
+      } else {
+        console.log("Error! Danger! Run!");
+        this.setState({
+          ...this.state,
+          isLoading: false,
+        });
+      }
     } catch (error) {
-        console.log(error);
+      console.log(error);
+      this.setState({
+        ...this.state,
+        isLoading: false,
+      });
     }
   };
 
@@ -32,17 +44,30 @@ class CarouselOfMovies extends React.Component {
   render() {
     return (
       <>
+        {this.state.isLoading && (
+          <Spinner
+            animation="border"
+            role="status"
+            className="custom-spinner-color"
+          >
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        )}
         <Carousel>
           <Carousel.Item>
             <Container>
               <Row>
                 <Col className="d-flex">
-                  {this.state.movies.Search && this.state.movies.Search.map((movie) => ( //Movies needs to NOT be empty - so, for them to be truthy, in order for the map to occur
-                      <div key={movie.imdbID}>
-                        <h6>{movie.Title}</h6>
-                        <img src={movie.Poster} alt={movie.Title} className="h-100 w-80"/>
-                      </div>
-                    ))}
+                  {this.state.movies.Search && this.state.movies.Search.map((movie) => ( //movies needs to NOT be an empty array- so, for them to be truthy, in order for the map to execute
+                        <div key={movie.imdbID}>
+                          <h6>{movie.Title}</h6>
+                          <img
+                            src={movie.Poster}
+                            alt={movie.Title}
+                          />
+                        </div>
+                      )
+                    )}
                 </Col>
               </Row>
             </Container>
