@@ -66,7 +66,7 @@ class NavBar extends Component {
                             <div className="btn-group">
                                 <button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    <Image src={Avatar} width={48} height={32} id="avatar"/>
+                                    <Image src={Avatar} width={38} height={32} id="avatar"/>
                                 </button>
                                 {/* <ListGroup className="dropdown-menu dropdown-menu-dark">
                                     <ListGroupItem><Alert.Link className="dropdown-item" href="https://www.google.com/profile.html">

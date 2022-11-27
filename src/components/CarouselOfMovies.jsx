@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import Carousel from "react-bootstrap/Carousel";
-// import WarningSign from "./WarningSign";
 
 class CarouselOfMovies extends Component {
   
@@ -67,6 +66,8 @@ class CarouselOfMovies extends Component {
                           <img
                             src={movie.Poster}
                             alt={movie.Title}
+                            className="movie mt-3"
+                            gap={2}
                           />
                         </div>
                       )
