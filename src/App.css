@@ -1,6 +1,6 @@
 .movie {
   aspect-ratio: 3/4;
-  border-radius: 2px;
+  border-radius: 10px;
   max-height: 400px;
   max-width: 250px;
   object-fit: cover;
@@ -28,7 +28,6 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
